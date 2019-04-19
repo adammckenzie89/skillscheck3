@@ -1,0 +1,2 @@
+ALTER TABLE home
+ADD email VARCHAR(50);

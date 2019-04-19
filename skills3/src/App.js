@@ -1,12 +1,17 @@
 import React, { Component } from "react";
-import { Hashrouter } from "react-router-dom";
+import { HashRouter, Link } from "react-router-dom";
+import routes from "./routes";
+import Header from "./components/Header";
+// import Wizard from "./components/Wizard";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>Hello</h1>
-      </div>
+      <HashRouter>
+        <div className="App" />
+        <Header />
+        {routes}
+      </HashRouter>
     );
   }
 }

@@ -1,18 +1,29 @@
-import {createStore} from 'redux';
+import { createStore } from "redux";
 
 const initialState = {
-    
-}
+  homes: []
+};
 
-//actions
+export const ADD_HOUSE = "ADD_HOUSE";
+export const DELETE_HOUSE = "DELETE_HOUSE";
 
-export const 
-
-function reducer(state= initialState, action){
-    switch(action.type){
-
-    }
+function reducer(state = initialState, action) {
+  switch (action.type) {
+    case ADD_HOUSE:
+      return {
+        ...state,
+        homes: [...state.homes, action.payload]
+      };
+    case DELETE_HOUSE:
+      let deleteHome = [...state.homes];
+      deleteHome.splice(action.payload, 1);
+      return {
+        ...state,
+        homes: deleteHome
+      };
+    default:
+      return state;
+  }
 }
 
 export default createStore(reducer);
-

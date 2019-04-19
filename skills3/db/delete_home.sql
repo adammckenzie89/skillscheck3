@@ -1,0 +1,5 @@
+DELETE FROM home WHERE id = $1;
+
+SELECT *
+FROM home
+ORDER BY id;
