@@ -8,21 +8,10 @@ class Header extends Component {
 
     this.state = {};
   }
-
-  //   componentDidMount() {
-  //     axios
-  //       .get(`/api/houses?house${this.props.match.params.zip}`)
-  //       .then(response => {
-  //         this.setState({
-  //           homes: response.data
-  //         });
-  //       });
-  //   }
   render() {
     return (
-      <div>
+      <div className="header">
         <h1>Houser</h1>
-        {/* <h1>{this.props.match.params.zip}</h1> */}
       </div>
     );
   }

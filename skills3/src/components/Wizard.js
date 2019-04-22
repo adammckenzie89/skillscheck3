@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import store, { ADD_HOUSE } from "../store";
+// import store, { ADD_HOUSE } from "../store";
 
 class Wizard extends Component {
   constructor() {
@@ -13,10 +13,11 @@ class Wizard extends Component {
       city: "",
       state: "",
       zip: 0,
-      homes: []
+      img: ""
     };
     this.handlePost = this.handlePost.bind(this);
   }
+
   handleProperty = e => {
     this.setState({
       name: e.target.value
@@ -36,7 +37,6 @@ class Wizard extends Component {
     this.setState({
       state: e.target.value
     });
-    // console.log(this.state.state);
   };
   handleZip = e => {
     this.setState({
@@ -44,7 +44,7 @@ class Wizard extends Component {
     });
   };
   handlePost() {
-    const { name, address, city, state, zip } = this.state;
+    const { name, address, city, state, zip, img } = this.state;
     console.log(this.state);
     axios
       .post("/api/houses", {
@@ -52,24 +52,19 @@ class Wizard extends Component {
         address: address,
         city: city,
         state: state,
-        zip: zip
+        zip: zip,
+        img: img
       })
       .then(response => {
         this.setState({ houses: response.data });
       });
   }
-  reduxPost = () => {
-    const action = {
-      type: ADD_HOUSE,
-      payload: this.state.homes
-    };
-    store.dispatch(action);
-  };
+
   render() {
     return (
       <div>
         <div />
-        <form>
+        <form className="form">
           <h1>Add New Listing</h1>
           <br />
           <label>Property Name</label>
@@ -82,13 +77,18 @@ class Wizard extends Component {
           <input onChange={e => this.handleState(e)} />
           <label>Zip</label>
           <input onChange={e => this.handleZip(e)} />
-          <Link to="/">
-            <button>Cancel</button>
-          </Link>
-          <button onClick={this.handlePost}>Add to list</button>
-          <Link to="/">
-            <button onClick={this.reduxPost}>Redux</button>
-          </Link>
+          <input
+            onChange={e => this.setState({ img: e.target.value })}
+            placeholder="Image URL"
+          />
+          <section className="buttons">
+            <Link className="links" to="/Dashboard">
+              <button onClick={this.handlePost}>Add to list</button>
+            </Link>
+            <Link className="links" to="/">
+              <button>Cancel</button>
+            </Link>
+          </section>
         </form>
       </div>
     );

@@ -1,3 +1,54 @@
-.houses {
+.form {
+  display: flex;
+  flex-direction: column;
   border: 1px solid black;
+  height: 500px;
+  width: 100%;
+  align-items: center;
+  background: rgb(235, 235, 252);
+}
+.form input {
+  width: 50%;
+  margin-top: 8px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+  border: 1px solid black;
+  height: 100px;
+  width: 300px;
+}
+
+.links {
+  margin: 20px;
+}
+
+.header {
+  background: rgb(89, 89, 223);
+  height: 80px;
+}
+
+.loginform {
+  display: flex;
+  border: 1px solid black;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  height: 300px;
+  background: rgb(239, 239, 251);
+}
+
+.loginform input {
+  width: 40%;
+  margin: 10px;
+}
+.loginbutton {
+  margin: 20px;
+  width: 100px;
+}
+.signup {
+  margin: 10px;
+  width: 100px;
 }

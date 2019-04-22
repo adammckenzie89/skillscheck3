@@ -11,6 +11,7 @@ class House extends Component {
         <p>{this.props.city}</p>
         <p>{this.props.state}</p>
         <p>{this.props.zip}</p>
+        <img src={this.props.img} />
       </div>
     );
   }
